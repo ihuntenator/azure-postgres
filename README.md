@@ -31,9 +31,10 @@ Error: Code="FeatureSwitchNotEnabled"
 
 ### read replica
 
-The azurerm provider for terraform has no support for creating a read replica. 
+Create a read replica with terraform:
 
-Use the CLI :
+
+Create a read replica witgh the CLI :
 ```
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
