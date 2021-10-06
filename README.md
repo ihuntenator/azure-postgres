@@ -5,6 +5,7 @@
 Create a `project.tfvars` file, as an example:
 
 ```
+location    = "australiaeast"
 project     = "failover"
 owner       = "imh"
 sdlc        = "lab"

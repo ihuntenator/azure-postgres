@@ -1,6 +1,6 @@
 variable "location" {
-  type    = string
-  default = "australiaeast"
+  type        = string
+  description = "The location you want to use"
 }
 
 variable "project" {
