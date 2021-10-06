@@ -6,19 +6,16 @@ variable "location" {
 variable "project" {
   type        = string
   description = "The project name to use for resource names"
-  default     = "failover"
 }
 
 variable "owner" {
   type        = string
   description = "Project owner"
-  default     = "imh"
 }
 
 variable "sdlc" {
   type        = string
   description = "The stage of the project"
-  default     = "lab"
 }
 
 variable "default_tags" {
@@ -29,12 +26,6 @@ variable "default_tags" {
     owner            = "imh"
     security_context = "public"
   }
-}
-
-variable "azurerm_postgresql_server_name" {
-  type        = string
-  description = "Postgress server name"
-  default     = "psqlserver"
 }
 
 variable "db_login" {
@@ -76,12 +67,6 @@ variable "geo_redundant_backup" {
   type        = bool
   description = "GEO redyndant backup"
   default     = false
-}
-
-variable "azurerm_postgresql_database" {
-  type        = string
-  description = "Postgres database name"
-  default     = "db"
 }
 
 variable "auto_grow" {

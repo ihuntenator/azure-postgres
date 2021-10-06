@@ -1,11 +1,11 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "rg-${var.owner}-${var.sdlc}-${var.project}"
+  name     = join("-", compact(["rg", lower(var.owner), lower(var.sdlc), lower(var.project)]))
   location = var.location
   tags     = merge(var.default_tags)
 }
 
 resource "azurerm_postgresql_server" "server" {
-  name                = "server-${var.owner}-${var.sdlc}-${var.project}"
+  name                = join("-", compact(["srv", lower(var.owner), lower(var.sdlc), lower(var.project)]))
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -27,7 +27,7 @@ resource "azurerm_postgresql_server" "server" {
 }
 
 resource "azurerm_postgresql_database" "db" {
-  name                = var.azurerm_postgresql_database
+  name                = join("-", compact(["db", lower(var.owner), lower(var.sdlc), lower(var.project)]))
   resource_group_name = azurerm_resource_group.rg.name
   server_name         = azurerm_postgresql_server.server.name
   charset             = var.charset

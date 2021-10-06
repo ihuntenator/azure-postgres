@@ -1,17 +1,28 @@
 # Azure PostgreSQL Single Server
 
+## project.tfvars file
+
+Create a `project.tfvars` file, as an example:
+
+```
+project     = "failover"
+owner       = "imh"
+sdlc        = "lab"
+db_password = "YOUR-SECRET"
+```
+
 ## plan apply destroy
 
 ```
-terraform plan -var-file="secret.tfvars"
+terraform plan -var-file="project.tfvars"
 ```
 
 ```
-terraform apply -var-file="secret.tfvars"
+terraform apply -var-file="project.tfvars"
 ```
 
 ```
-terraform destroy
+terraform destroy -var-file="project.tfvars"
 ```
 
 ## azurerm issues
