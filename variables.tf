@@ -3,10 +3,28 @@ variable "location" {
   default = "australiaeast"
 }
 
+variable "project" {
+  type        = string
+  description = "The project name to use for resource names"
+  default     = "failover"
+}
+
+variable "owner" {
+  type        = string
+  description = "Project owner"
+  default     = "imh"
+}
+
+variable "sdlc" {
+  type        = string
+  description = "The stage of the project"
+  default     = "lab"
+}
+
 variable "default_tags" {
   type = map(any)
   default = {
-    app              = "postgres"
+    app              = "postgresql"
     env              = "lab"
     owner            = "imh"
     security_context = "public"
@@ -16,7 +34,7 @@ variable "default_tags" {
 variable "azurerm_postgresql_server_name" {
   type        = string
   description = "Postgress server name"
-  default     = "failover-psqlserver"
+  default     = "psqlserver"
 }
 
 variable "db_login" {
@@ -63,7 +81,7 @@ variable "geo_redundant_backup" {
 variable "azurerm_postgresql_database" {
   type        = string
   description = "Postgres database name"
-  default     = "failover-db"
+  default     = "db"
 }
 
 variable "auto_grow" {
@@ -82,12 +100,6 @@ variable "ssl_minimal_tls_version" {
   type        = string
   description = "Minimal TLS version"
   default     = "TLS1_2"
-}
-
-variable "azurerm_postgresql_database_name" {
-  type        = string
-  description = "Postgres database name"
-  default     = "failoverdb"
 }
 
 variable "charset" {

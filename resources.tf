@@ -1,13 +1,13 @@
-resource "azurerm_resource_group" "failover" {
-  name     = "rg-imh-aus-lab"
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-${var.owner}-${var.sdlc}-${var.project}"
   location = var.location
   tags     = merge(var.default_tags)
 }
 
-resource "azurerm_postgresql_server" "failover" {
-  name                = var.azurerm_postgresql_server_name
-  location            = azurerm_resource_group.failover.location
-  resource_group_name = azurerm_resource_group.failover.name
+resource "azurerm_postgresql_server" "server" {
+  name                = "server-${var.owner}-${var.sdlc}-${var.project}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 
   administrator_login          = var.db_login
   administrator_login_password = var.db_password
@@ -26,10 +26,10 @@ resource "azurerm_postgresql_server" "failover" {
   tags = merge(var.default_tags)
 }
 
-resource "azurerm_postgresql_database" "failover" {
+resource "azurerm_postgresql_database" "db" {
   name                = var.azurerm_postgresql_database
-  resource_group_name = azurerm_resource_group.failover.name
-  server_name         = azurerm_postgresql_server.failover.name
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_postgresql_server.server.name
   charset             = var.charset
   collation           = var.collation
 }
