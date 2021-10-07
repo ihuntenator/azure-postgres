@@ -5,6 +5,7 @@
 Create a `project.tfvars` file, as an example:
 
 ```
+tenant_id   = "YOUR-TENANT-ID"
 location    = "australiaeast"
 project     = "failover"
 owner       = "imh"
