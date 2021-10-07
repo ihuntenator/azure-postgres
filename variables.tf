@@ -1,3 +1,8 @@
+variable "tenant_id" {
+  type        = string
+  description = "The tenant_id you want to use"
+}
+
 variable "location" {
   type        = string
   description = "The location you want to use"
