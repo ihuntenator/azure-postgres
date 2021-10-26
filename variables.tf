@@ -3,6 +3,11 @@ variable "location" {
   default = "australiaeast"
 }
 
+variable "tenant_id" {
+  type        = string
+  description = "The Azure tenant"
+}
+
 variable "project" {
   type        = string
   description = "The project name to use for resource names"
